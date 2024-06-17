@@ -11,4 +11,7 @@ conda install pyqtwebengine
 ```
 
 ## webserver
-python -m http.server
+```
+cd webserver
+python -m http.server 8080
+```
