@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>修正版多显示设备动态 UI 示例</title>
+<style>
+    body { font-family: Arial, sans-serif; }
+    .button {
+        padding: 10px 20px;
+        color: white;
+        background-color: #007BFF;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 10px;
+        transition: background-color 0.3s;
+    }
+    .button:hover {
+        background-color: #0056b3;
+    }
+    .animated-box {
+        width: 100px;
+        height: 100px;
+        position: relative; /* 确保使用相对定位 */
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+    }
+    .box1 { background-color: red; animation-name: move-horizontal; }
+    .box2 { background-color: blue; animation-name: move-vertical; }
+    @keyframes move-horizontal {
+        0% { left: 0; }
+        50% { left: 50%; }
+        100% { left: 0; }
+    }
+    @keyframes move-vertical {
+        0% { top: 0; }
+        50% { top: 50%; } /* 使用百分比确保移动 */
+        100% { top: 0; }
+    }
+</style>
+</head>
+<body>
+<h1>修正版多显示设备动态 UI 示例</h1>
+<button class="button" onclick="toggleAnimation('box1')">切换水平动画</button>
+<button class="button" onclick="toggleAnimation('box2')">切换垂直动画</button>
+<div id="box1" class="animated-box box1"></div>
+<div id="box2" class="animated-box box2"></div>
+<script>
+    function toggleAnimation(boxId) {
+        var box = document.getElementById(boxId);
+        if (box.style.animationPlayState === 'paused') {
+            box.style.animationPlayState = 'running';
+        } else {
+            box.style.animationPlayState = 'paused';
+        }
+    }
+</script>
+</body>
+</html>
+
